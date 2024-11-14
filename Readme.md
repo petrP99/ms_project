@@ -1,3 +1,7 @@
+
+http://kube.local:99/display/JD/Experience+Service
+
+
 **1) Разработать Experience Service**
 
 `Таблица experience:
