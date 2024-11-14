@@ -8,12 +8,15 @@ spring:
     gateway:
       mvc:
         routes:
-          - id: test
+          - id: exs
             uri: lb://experience-service
             predicates:
-              - Path=/api/v1/es/**
-              - Method=
+              - Path=/api/v1/exs/**
 
+          - id: ins
+            uri: lb://industry-service
+            predicates:
+              - Path=/api/v1/ins/**
 
 
 eureka:
