@@ -51,6 +51,7 @@ databaseChangeLog:
                 type: VARCHAR(255)
                 constraints:
                   nullable: true
+
         - createTable:
             tableName: Duties
             columns:
