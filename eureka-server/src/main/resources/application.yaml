@@ -1,6 +1,7 @@
 spring:
   application:
     name: eureka-server
+
 server:
   port: 8081
 
@@ -12,24 +13,4 @@ eureka:
       defaultZone: http://localhost:8081/eureka/
   instance:
     hostname: localhost
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
