@@ -5,7 +5,7 @@ spring:
   application:
     name: experience_service
   liquibase:
-    change-log: classpath:db.changelog/changelog.xml
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 #    parameters:
 #      searchPath: "experience-service/src/main/resources/db/changelog"
   jpa:
