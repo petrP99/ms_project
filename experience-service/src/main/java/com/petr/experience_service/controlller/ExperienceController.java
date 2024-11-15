@@ -2,7 +2,6 @@ package com.petr.experience_service.controlller;
 
 import com.petr.experience_service.dto.ExperienceRequestDto;
 import com.petr.experience_service.dto.ExperienceResponseDto;
-import com.petr.experience_service.mapper.ExperienceMapper;
 import com.petr.experience_service.service.ExperienceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -33,8 +32,8 @@ public class ExperienceController {
 
     @RequestMapping("/save")
     public ResponseEntity<ExperienceResponseDto> saveExperience(@Valid @RequestBody ExperienceRequestDto requestDto) {
-        experienceService.saveExperience(requestDto);
-        return new ResponseEntity<>(HttpStatus.OK);
+        ExperienceResponseDto responseDto = experienceService.saveExperience(requestDto);
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
 }

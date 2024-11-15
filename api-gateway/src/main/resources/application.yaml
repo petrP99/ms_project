@@ -1,9 +1,15 @@
-server:
-  port: 9999
-
 spring:
   application:
     name: api-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+
+server:
+  port: 9999
+
   cloud:
     gateway:
       mvc:
@@ -19,7 +25,4 @@ spring:
               - Path=/api/v1/ins/**
 
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka/
+

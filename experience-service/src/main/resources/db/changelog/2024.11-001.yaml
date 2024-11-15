@@ -64,12 +64,14 @@ databaseChangeLog:
             tableName: Duties
             columns:
               - column:
-                  name: id
+                  name: experience_id
                   type: BIGINT
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
+                    foreignKeyName: fk_duties_experience
+                    references: experience(id)
               - column:
                   name: duty_name
                   type: VARCHAR(255)

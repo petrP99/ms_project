@@ -8,8 +8,8 @@ import com.petr.experience_service.repository.ExperienceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class ExperienceService {
 
     private final ExperienceRepository repository;

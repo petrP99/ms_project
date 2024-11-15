@@ -1,12 +1,14 @@
 package com.petr.experience_service.dto;
 
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
-import lombok.Data;
 
-import java.awt.*;
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.YearMonth;
 

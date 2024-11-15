@@ -21,8 +21,8 @@ http://kube.local:99/display/JD/Experience+Service
 * duty_name
 
 Сделать два метода в контроллере:
-`getExperienceById
-add`
+`getExperienceById`
+`add`
 
 **2) Разработать Industry Service**
 
@@ -32,6 +32,6 @@ add`
 
 Примечание:
 
-Для того, чтобы получить информацию о предприятиях - отправить запрос по restTemplate на Industry Service
-Тесты не нужны
-В качестве БД H2 embedded
+* Для того, чтобы получить информацию о предприятиях - отправить запрос по restTemplate на Industry Service
+* Тесты не нужны
+* В качестве БД H2 embedded

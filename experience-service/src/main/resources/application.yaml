@@ -1,6 +1,11 @@
 server:
   port: 0
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+
 spring:
   application:
     name: experience_service
@@ -22,6 +27,6 @@ spring:
     password: admin
     url: jdbc:h2:mem:experience_service
 
-logging:
-  level:
-    liquibase: DEBUG
+#logging:
+#  level:
+#    liquibase: DEBUG
