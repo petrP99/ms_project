@@ -28,6 +28,9 @@ public record ExperienceRequestDto(
         @NotNull(message = "Present time is required")
         Boolean presentTime,
 
+        @NotNull(message = "Industry id is required")
+        Long industryId,
+
         @NotBlank(message = "Company name is required")
         @Size(max = 128, message = "Company name must not exceed 128 characters")
         String company,

@@ -1,28 +1,18 @@
-spring:
-  application:
-    name: api-gateway
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka/
-
 server:
   port: 9999
 
+spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
-      mvc:
-        routes:
-          - id: exs
-            uri: lb://experience-service
-            predicates:
-              - Path=/api/v1/exs/**
+      routes:
+        - id: exs
+          uri: lb://experience-service
+          predicates:
+            - Path=/api/v1/exs/**
 
-          - id: ins
-            uri: lb://industry-service
-            predicates:
-              - Path=/api/v1/ins/**
-
-
-
+        - id: ins
+          uri: lb://industry-service
+          predicates:
+            - Path=/api/v1/ins/**

@@ -36,6 +36,7 @@ public class Experience {
 
     @Column(name = "present_time")
     private Boolean presentTime;
+    private Long industryId;
     private String company;
     private String position;
     private String achievements;
