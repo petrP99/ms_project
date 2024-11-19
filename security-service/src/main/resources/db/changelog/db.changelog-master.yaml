@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: 2024.11-001-sec.yaml
+      relativeToChangelogFile: true

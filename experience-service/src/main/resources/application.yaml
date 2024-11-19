@@ -1,18 +1,12 @@
 server:
   port: 0
 
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: http://localhost:8081/eureka/
-
 spring:
   application:
-    name: experience_service
+    name: experience-service
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
-#    parameters:
-#      searchPath: "experience-service/src/main/resources/db/changelog"
+
   jpa:
     show-sql: true
     open-in-view: true
@@ -26,7 +20,3 @@ spring:
     username: admin
     password: admin
     url: jdbc:h2:mem:experience_service
-
-#logging:
-#  level:
-#    liquibase: DEBUG

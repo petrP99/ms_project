@@ -1,8 +1,6 @@
 package com.petr.experience_service.dto;
 
 
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -14,15 +12,13 @@ import java.time.YearMonth;
 
 @Builder
 public record ExperienceRequestDto(
-        @NotNull(message = "Sequence number is required")
-        @Min(value = 1, message = "Sequence number must be at least 1")
-        Integer sequenceNumber,
 
-        @NotNull(message = "Period from is required")
+        @NotNull(message = "Period from time is required")
+        @PastOrPresent
         YearMonth periodFrom,
 
+        @NotNull(message = "Period to time is required")
         @PastOrPresent
-        @FutureOrPresent
         YearMonth periodTo,
 
         @NotNull(message = "Present time is required")

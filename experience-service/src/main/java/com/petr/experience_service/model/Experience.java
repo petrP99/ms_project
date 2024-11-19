@@ -1,11 +1,7 @@
 package com.petr.experience_service.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.petr.experience_service.util.YearMonthDateAttributeConverter;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,8 +25,10 @@ public class Experience {
     private Integer sequenceNumber;
 
     @Column(name = "period_from")
+    @Convert(converter = YearMonthDateAttributeConverter.class)
     private YearMonth periodFrom;
 
+    @Convert(converter = YearMonthDateAttributeConverter.class)
     @Column(name = "period_to")
     private YearMonth periodTo;
 

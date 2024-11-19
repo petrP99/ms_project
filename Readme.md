@@ -1,10 +1,9 @@
-
 http://kube.local:99/display/JD/Experience+Service
-
 
 **1) Разработать Experience Service**
 
 1. [ ] Таблица experience:
+
 * id
 * sequence_number
 * period_from
@@ -17,6 +16,7 @@ http://kube.local:99/display/JD/Experience+Service
 * link
 
 2. [ ] Таблица duties:
+
 * experience_id
 * duty_name
 
@@ -27,6 +27,7 @@ http://kube.local:99/display/JD/Experience+Service
 **2) Разработать Industry Service**
 
 3. [ ] Таблица industries:
+
 * id
 * name
 

@@ -16,3 +16,8 @@ spring:
           uri: lb://industry-service
           predicates:
             - Path=/api/v1/ins/**
+
+        - id: security
+          uri: lb://security-service
+          predicates:
+            - Path=/api/v1/auth/**

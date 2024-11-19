@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024.11-001
+      author: p.petrovich
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: "99"
+              - column:
+                  name: username
+                  value: "1@mail.ru"
+              - column:
+                  name: password
+                  value: "123"

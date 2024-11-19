@@ -15,10 +15,10 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: sequence_number
-                  type: BIGINT
+                  type: INT
                   constraints:
                     unique: true
-                    nullable: false
+                    nullable: true
               - column:
                   name: period_from
                   type: DATE

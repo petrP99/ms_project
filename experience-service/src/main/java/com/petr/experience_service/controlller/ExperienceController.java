@@ -2,7 +2,6 @@ package com.petr.experience_service.controlller;
 
 import com.petr.experience_service.dto.ExperienceRequestDto;
 import com.petr.experience_service.dto.ExperienceResponseDto;
-import com.petr.experience_service.dto.IndustryDto;
 import com.petr.experience_service.service.ExperienceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,15 +29,24 @@ public class ExperienceController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<List<ExperienceResponseDto>> getExperienceById() {
+        List<ExperienceResponseDto> responseDto = experienceService.getAllExperience();
+        if (responseDto.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<ExperienceResponseDto> addExperience(@Valid @RequestBody ExperienceRequestDto requestDto) {
         ExperienceResponseDto responseDto = experienceService.saveExperience(requestDto);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
-    @GetMapping("/getAll")
-    public List<IndustryDto> getIndustry() {
-        return experienceService.getIndustry();
+    @GetMapping("/getIndustry/{id}")
+    public Long getIndustryId(@PathVariable("id") Long id) {
+        return experienceService.getIndustry(id);
     }
 
 }
