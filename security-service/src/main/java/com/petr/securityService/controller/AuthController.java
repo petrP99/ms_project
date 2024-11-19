@@ -24,6 +24,11 @@ public class AuthController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationServiceImpl authService;
 
+    @PostMapping("/register")
+    public String createUser(@Valid @RequestBody AuthenticationRequestDto requestDto) {
+        return authService.saveUSer(requestDto);
+    }
+
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@Valid @RequestBody AuthenticationRequestDto requestDto) {
         AuthenticationUserDto user = authService.findByEmailAndPassword(requestDto);
@@ -36,26 +41,22 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping("/register")
-    public String createUser(@Valid @RequestBody AuthenticationRequestDto requestDto) {
-        return authService.saveUSer(requestDto);
-    }
 
-    @PostMapping("/token")
-    public String getToken(@Valid @RequestBody AuthenticationRequestDto requestDto, AuthenticationManager authenticationManager) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(requestDto.username(), requestDto.password()));
-        if (authentication.isAuthenticated()) {
-            return authService.generateToken(requestDto.username());
-        } else {
-            throw new RuntimeException("invalid access");
-        }
-    }
+//    @PostMapping("/token")
+//    public String getToken(@Valid @RequestBody AuthenticationRequestDto requestDto, AuthenticationManager authenticationManager) {
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(requestDto.username(), requestDto.password()));
+//        if (authentication.isAuthenticated()) {
+//            return authService.generateToken(requestDto.username());
+//        } else {
+//            throw new RuntimeException("invalid access");
+//        }
+//    }
 
     @GetMapping("/validate")
     public String validate(@RequestParam("token") String token) {
         jwtTokenProvider.validateToken(token);
-                authService.validateToken(token);
+//                authService.validateToken(token);
         return "Token is valid";
     }
 }

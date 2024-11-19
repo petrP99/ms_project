@@ -13,7 +13,7 @@
         <module>eureka-server</module>
         <module>experience-service</module>
         <module>industry-service</module>
-        <module>jwt-service</module>
+        <module>security-service</module>
     </modules>
     <groupId>com.petr</groupId>
     <artifactId>ms_project</artifactId>
