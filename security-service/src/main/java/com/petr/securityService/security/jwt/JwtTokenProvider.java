@@ -30,7 +30,6 @@ public class JwtTokenProvider {
 
     public String createToken(AuthenticationDto user) {
         Claims claims = Jwts.claims().setSubject(user.username());
-
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);
 
