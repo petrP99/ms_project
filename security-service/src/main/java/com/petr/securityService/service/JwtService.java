@@ -21,8 +21,6 @@ public class JwtService {
     @Value("${spring.security.jwt.expired}")
     private long validityInMilliseconds;
 
-
-
     public String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
         return createToken(claims, username);

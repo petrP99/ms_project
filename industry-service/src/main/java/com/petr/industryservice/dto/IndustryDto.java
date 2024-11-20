@@ -1,5 +1,5 @@
 package com.petr.industryservice.dto;
 
-public record IndustryDto(int id,
+public record IndustryDto(Long id,
                           String name) {
 }

@@ -44,9 +44,9 @@ public class ExperienceController {
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
     }
 
-    @GetMapping("/getIndustry/{id}")
-    public Long getIndustryId(@PathVariable("id") Long id) {
-        return experienceService.getIndustry(id);
+    @GetMapping("/getIndustry/{name}")
+    public Long getIndustryById(@PathVariable("name") String name) {
+        return experienceService.getIndustry(name);
     }
 
 }

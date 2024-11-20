@@ -21,7 +21,6 @@ public class ExperienceService {
     private final ExperienceMapper mapper;
     private final IndustryClient industryClient;
 
-
     public ExperienceResponseDto getExperience(Long id) {
         return repository.getExperienceById(id);
     }
@@ -32,12 +31,15 @@ public class ExperienceService {
 
     public ExperienceResponseDto saveExperience(ExperienceRequestDto requestDto) {
         Experience experience = mapper.fromDtoToEntity(requestDto);
+        Long industryId = getIndustry(experience.getCompany());
         experience.setSequenceNumber(nextInt());
+        experience.setPresentTime(experience.getPeriodTo() == null);
+        experience.setIndustryId(industryId);
         Experience savedExperience = repository.save(experience);
         return mapper.fromEntityToDto(savedExperience);
     }
 
-    public Long getIndustry(Long id) {
-        return industryClient.getIndustryById(id);
+    public Long getIndustry(String name) {
+        return industryClient.getIndustry(name);
     }
 }

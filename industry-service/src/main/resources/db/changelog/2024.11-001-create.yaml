@@ -10,6 +10,7 @@ databaseChangeLog:
                   name: id
                   type: BIGINT
                   autoIncrement: true
+                  startWith: 10
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -18,12 +19,3 @@ databaseChangeLog:
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
-        - insert:
-            tableName: Industries
-            columns:
-              - column:
-                  name: id
-                  value: "10"
-              - column:
-                  name: name
-                  value: "value"

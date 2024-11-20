@@ -1,8 +1,5 @@
 package com.petr.securityService.config;
 
-import com.petr.securityService.security.jwt.JwtTokenFilter;
-import com.petr.securityService.security.jwt.JwtTokenProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

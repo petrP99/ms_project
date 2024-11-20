@@ -1,5 +1,7 @@
 package com.petr.industryservice.service;
 
+import com.petr.industryservice.dto.IndustryDto;
+import com.petr.industryservice.dto.IndustryRequestDto;
 import com.petr.industryservice.model.Industry;
 import com.petr.industryservice.repository.IndustryRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +13,16 @@ public class IndustryService {
 
     private final IndustryRepository repository;
 
-    public Industry getIndustryById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new RuntimeException("No such industry"));
+    public Long getIndustryByName(String name) {
+        return repository.findByName(name).getId();
+    }
+
+    public String addCompany(IndustryRequestDto dto) {
+        Industry industry = Industry.builder()
+                .withName(dto.name())
+                .build();
+        repository.save(industry);
+        return String.format("Company %s saved", dto.name());
     }
 }
 

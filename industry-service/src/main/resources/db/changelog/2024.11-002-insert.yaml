@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024.11-002
+      author: p.petrovich
+      changes:
+        - insert:
+            tableName: Industries
+            columns:
+              - column:
+                  name: id
+                  value: "11111"
+              - column:
+                  name: name
+                  value: "Amazon"
+        - insert:
+            tableName: Industries
+            columns:
+              - column:
+                  name: id
+                  value: "22222"
+              - column:
+                  name: name
+                  value: "Google"
+        - insert:
+            tableName: Industries
+            columns:
+              - column:
+                  name: id
+                  value: "33333"
+              - column:
+                  name: name
+                  value: "Tinkoff"
+        - insert:
+            tableName: Industries
+            columns:
+              - column:
+                  name: id
+                  value: "44444"
+              - column:
+                  name: name
+                  value: "Yandex"

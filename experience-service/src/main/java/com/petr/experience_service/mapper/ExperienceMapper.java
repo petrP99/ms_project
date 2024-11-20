@@ -16,8 +16,8 @@ public interface ExperienceMapper {
 
     @Mapping(target = "periodFrom", source = "periodFrom")
     @Mapping(target = "periodTo", source = "periodTo")
-    @Mapping(target = "presentTime", source = "presentTime")
-    @Mapping(target = "industryId", source = "industryId")
+//    @Mapping(target = "presentTime", source = "presentTime")
+//    @Mapping(target = "industryId", source = "industryId")
     @Mapping(target = "id", ignore = true)
     Experience fromDtoToEntity(ExperienceRequestDto dto);
 }
