@@ -40,6 +40,6 @@ public class ExperienceService {
     }
 
     public Long getIndustry(String name) {
-        return industryClient.getIndustry(name);
+        return industryClient.getIndustryId(name);
     }
 }

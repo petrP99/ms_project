@@ -30,5 +30,4 @@ public class IndustryController {
         return "Успешно добавлено";
     }
 
-
 }

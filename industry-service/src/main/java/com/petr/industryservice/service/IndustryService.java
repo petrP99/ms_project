@@ -1,6 +1,5 @@
 package com.petr.industryservice.service;
 
-import com.petr.industryservice.dto.IndustryDto;
 import com.petr.industryservice.dto.IndustryRequestDto;
 import com.petr.industryservice.model.Industry;
 import com.petr.industryservice.repository.IndustryRepository;
@@ -17,12 +16,11 @@ public class IndustryService {
         return repository.findByName(name).getId();
     }
 
-    public String addCompany(IndustryRequestDto dto) {
+    public void addCompany(IndustryRequestDto dto) {
         Industry industry = Industry.builder()
                 .withName(dto.name())
                 .build();
         repository.save(industry);
-        return String.format("Company %s saved", dto.name());
     }
 }
 
