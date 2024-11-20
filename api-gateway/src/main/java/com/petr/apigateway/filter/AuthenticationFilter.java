@@ -10,42 +10,42 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-@Component
-public class AuthenticationFilter extends AbstractGatewayFilterFactory<AbstractGatewayFilterFactory.NameConfig> {
+//@Component
+//public class AuthenticationFilter extends AbstractGatewayFilterFactory<AbstractGatewayFilterFactory.NameConfig> {
 
-    @Autowired
-    private RouteValidator validator;
+//    @Autowired
+//    private RouteValidator validator;
+//
+//    @Autowired
+//    private JwtUtil jwtUtil;
+//
+//    public AuthenticationFilter() {
+//        super(NameConfig.class);
+//    }
+//
+//    @Override
+//    public GatewayFilter apply(NameConfig config) {
+//        return (((exchange, chain) -> {
+//            if (validator.isSecured.test(exchange.getRequest())) {
+//                if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
+//                    throw new RuntimeException("Missing authorization header");
+//                }
+//                String authHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
+//                if (authHeader != null && authHeader.startsWith("Bearer")) {
+//                    authHeader = authHeader.substring(6);
+//                }
+//                try {
+//                    jwtUtil.validateToken(authHeader);
+//                } catch (Exception e) {
+//                    System.out.println("Invalid access");
+//                    throw new RuntimeException("un authorized access to app");
+//                }
+//            }
+//            return chain.filter(exchange);
+//        }));
+//    }
 
-    @Autowired
-    private JwtUtil jwtUtil;
-
-    public AuthenticationFilter() {
-        super(NameConfig.class);
-    }
-
-    @Override
-    public GatewayFilter apply(NameConfig config) {
-        return (((exchange, chain) -> {
-            if (validator.isSecured.test(exchange.getRequest())) {
-                if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
-                    throw new RuntimeException("Missing authorization header");
-                }
-                String authHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
-                if (authHeader != null && authHeader.startsWith("Bearer")) {
-                    authHeader = authHeader.substring(6);
-                }
-                try {
-                    jwtUtil.validateToken(authHeader);
-                } catch (Exception e) {
-                    System.out.println("Invalid access");
-                    throw new RuntimeException("un authorized access to app");
-                }
-            }
-            return chain.filter(exchange);
-        }));
-    }
-
-    public static class Config {
-        
-    }
-}
+//    public static class Config {
+//
+//    }
+//}

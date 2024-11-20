@@ -1,6 +1,6 @@
 package com.petr.securityService.security.jwt;
 
-import com.petr.securityService.dto.AuthenticationUserDto;
+import com.petr.securityService.dto.AuthenticationDto;
 import com.petr.securityService.security.JwtUserDetailsService;
 import io.jsonwebtoken.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,9 +28,8 @@ public class JwtTokenProvider {
 
     private final JwtUserDetailsService userDetailsService;
 
-    public String createToken(AuthenticationUserDto user) {
+    public String createToken(AuthenticationDto user) {
         Claims claims = Jwts.claims().setSubject(user.username());
-//        claims.put("roles", "user");
 
         Date now = new Date();
         Date validity = new Date(now.getTime() + validityInMilliseconds);

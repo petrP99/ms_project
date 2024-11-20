@@ -2,9 +2,11 @@ package com.petr.securityService.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.spec.SecretKeySpec;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +14,14 @@ import java.util.Map;
 @Service
 public class JwtService {
 
-    private final String SECRET = "123";
+    @Value("${spring.security.jwt.secret}")
+    private String secret;
+
+    @Value("${spring.security.jwt.expired}")
+    private long validityInMilliseconds;
+
+    Date now = new Date();
+    Date validity = new Date(now.getTime() + validityInMilliseconds);
 
     public String generateToken(String username) {
         Map<String, Object> claims = new HashMap<>();
@@ -20,20 +29,19 @@ public class JwtService {
     }
 
     public void validateToken(String token) {
-        Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token);
+        Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
     }
 
-    public String createToken(Map<String, Object> claims, String username) {
+    private String createToken(Map<String, Object> claims, String username) {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+                .setIssuedAt(now)
+                .setExpiration(validity)
                 .signWith(SignatureAlgorithm.HS256, getKey()).compact();
     }
 
     private SecretKeySpec getKey() {
-        return new SecretKeySpec(SECRET.getBytes(), SignatureAlgorithm.HS256.getJcaName());
+        return new SecretKeySpec(Base64.getDecoder().decode(secret.getBytes()), SignatureAlgorithm.HS256.getJcaName());
     }
-
 }
