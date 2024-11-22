@@ -2,6 +2,7 @@ package com.petr.experience_service.controlller;
 
 import com.petr.experience_service.dto.ExperienceRequestDto;
 import com.petr.experience_service.dto.ExperienceResponseDto;
+import com.petr.experience_service.dto.IndustryDto;
 import com.petr.experience_service.service.ExperienceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -45,8 +46,8 @@ public class ExperienceController {
     }
 
     @GetMapping("/getIndustry/{name}")
-    public Long getIndustryById(@PathVariable("name") String name) {
-        return experienceService.getIndustry(name);
+    public IndustryDto getIndustryById(@PathVariable Long id) {
+        return experienceService.getIndustry(id);
     }
 
 }

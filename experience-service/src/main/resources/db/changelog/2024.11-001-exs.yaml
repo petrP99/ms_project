@@ -40,11 +40,6 @@ databaseChangeLog:
                   constraints:
                     nullable: true
               - column:
-                  name: company
-                  type: VARCHAR(128)
-                  constraints:
-                    nullable: false
-              - column:
                   name: position
                   type: VARCHAR(128)
                   constraints:

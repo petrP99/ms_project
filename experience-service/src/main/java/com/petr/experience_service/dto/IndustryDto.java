@@ -1,4 +1,4 @@
-package com.petr.industryservice.dto;
+package com.petr.experience_service.dto;
 
 public record IndustryDto(Long id,
                           String name,

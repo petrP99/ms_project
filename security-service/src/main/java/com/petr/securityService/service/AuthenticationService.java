@@ -1,7 +1,6 @@
 package com.petr.securityService.service;
 
 import com.petr.securityService.dto.AuthenticationDto;
-import com.petr.securityService.mapper.AuthenticationUserMapper;
 import com.petr.securityService.model.User;
 import com.petr.securityService.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,6 @@ import java.util.Optional;
 public class AuthenticationService {
 
     private final UserRepository userRepository;
-//    private final AuthenticationUserMapper authenticationUserMapper;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 

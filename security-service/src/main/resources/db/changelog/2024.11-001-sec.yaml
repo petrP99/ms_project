@@ -35,4 +35,4 @@ databaseChangeLog:
                   value: "1@mail.ru"
               - column:
                   name: password
-                  value: "123"
+                  value: "$2a$10$bE3r7/HmEPP4NxYhCfIEQ.0.rvqLQvZaJTj93HGSHM93q2evP7c/a"

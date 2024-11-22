@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
-    ExperienceResponseDto getExperienceById(Long id);
-
-    List<ExperienceResponseDto> getExperiencesBy();
+//    ExperienceResponseDto getExperienceById(Long id);
+//
+//    List<ExperienceResponseDto> getExperiencesBy();
 }

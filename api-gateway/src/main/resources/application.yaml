@@ -22,7 +22,7 @@ spring:
           predicates:
             - Path=/api/v1/ins/**
           filters:
-#            - name: AuthenticationFilter
+            - name: AuthenticationFilter
 
         - id: security
           uri: lb://security-service

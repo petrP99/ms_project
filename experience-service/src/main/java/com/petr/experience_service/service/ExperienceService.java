@@ -3,15 +3,18 @@ package com.petr.experience_service.service;
 import com.petr.experience_service.client.IndustryClient;
 import com.petr.experience_service.dto.ExperienceRequestDto;
 import com.petr.experience_service.dto.ExperienceResponseDto;
+import com.petr.experience_service.dto.IndustryDto;
 import com.petr.experience_service.mapper.ExperienceMapper;
 import com.petr.experience_service.model.Experience;
 import com.petr.experience_service.repository.ExperienceRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
-import static org.apache.commons.lang.math.RandomUtils.nextInt;
+import static java.util.Objects.isNull;
 
 @Service
 @RequiredArgsConstructor
@@ -22,24 +25,25 @@ public class ExperienceService {
     private final IndustryClient industryClient;
 
     public ExperienceResponseDto getExperience(Long id) {
-        return repository.getExperienceById(id);
+//        return repository.getExperienceById(id);
+        return null;
     }
 
     public List<ExperienceResponseDto> getAllExperience() {
-        return repository.getExperiencesBy();
+//        return repository.getExperiencesBy();
+        return null;
     }
 
     public ExperienceResponseDto saveExperience(ExperienceRequestDto requestDto) {
         Experience experience = mapper.fromDtoToEntity(requestDto);
-        Long industryId = getIndustry(experience.getCompany());
-        experience.setSequenceNumber(nextInt());
-        experience.setPresentTime(experience.getPeriodTo() == null);
-        experience.setIndustryId(industryId);
+        IndustryDto industry = getIndustry(experience.getIndustryId());
+        experience.setSequenceNumber(RandomUtils.nextInt());
+        experience.setPresentTime(isNull(experience.getPeriodTo()));
         Experience savedExperience = repository.save(experience);
-        return mapper.fromEntityToDto(savedExperience);
+        return mapper.fromEntityToDto(savedExperience, industry);
     }
 
-    public Long getIndustry(String name) {
-        return industryClient.getIndustryId(name);
+    public IndustryDto getIndustry(Long id) {
+        return industryClient.getIndustryId(id);
     }
 }

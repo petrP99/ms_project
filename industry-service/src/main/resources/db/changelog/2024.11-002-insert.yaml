@@ -12,30 +12,50 @@ databaseChangeLog:
               - column:
                   name: name
                   value: "Amazon"
+              - column:
+                  name: direction
+                  value: "Market Place"
+              - column:
+                  name: address
+                  value: "Boston"
+              - column:
+                  name: phone
+                  value: "9888877452"
+
         - insert:
             tableName: Industries
             columns:
               - column:
                   name: id
-                  value: "22222"
+                  value: "222222"
               - column:
                   name: name
                   value: "Google"
+              - column:
+                  name: direction
+                  value: "IT"
+              - column:
+                  name: address
+                  value: "Warsawa"
+              - column:
+                  name: phone
+                  value: "758624567"
+
         - insert:
             tableName: Industries
             columns:
               - column:
                   name: id
-                  value: "33333"
+                  value: "3333333"
               - column:
                   name: name
                   value: "Tinkoff"
-        - insert:
-            tableName: Industries
-            columns:
               - column:
-                  name: id
-                  value: "44444"
+                  name: direction
+                  value: "Banking"
               - column:
-                  name: name
-                  value: "Yandex"
+                  name: address
+                  value: "Moscow"
+              - column:
+                  name: phone
+                  value: "7999225541"

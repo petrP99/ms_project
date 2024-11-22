@@ -22,7 +22,6 @@ import static java.util.Objects.isNull;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
 
-    //    private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationService authService;
 
     @PostMapping("/register")

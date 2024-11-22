@@ -13,8 +13,7 @@ public record ExperienceResponseDto(
         YearMonth periodFrom,
         YearMonth periodTo,
         Boolean presentTime,
-        Long industryId,
-        String company,
+        IndustryDto company,
         String position,
         String achievements,
         String link

@@ -20,9 +20,8 @@ public record ExperienceRequestDto(
         @PastOrPresent
         YearMonth periodTo,
 
-        @NotBlank(message = "Company name is required")
-        @Size(max = 128, message = "Company name must not exceed 128 characters")
-        String company,
+        @NotNull(message = "industry id is required")
+        Long industryId,
 
         @NotBlank(message = "Position is required")
         @Size(max = 255, message = "Position must not exceed 255 characters")
