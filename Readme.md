@@ -15,11 +15,6 @@ http://kube.local:99/display/JD/Experience+Service
 * achievements
 * link
 
-2. [ ] Таблица duties:
-
-* experience_id
-* duty_name
-
 Сделать два метода в контроллере:
 `getExperienceById`
 `add`
