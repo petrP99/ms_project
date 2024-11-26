@@ -6,9 +6,6 @@ spring:
     name: security-service
 
   security:
-    #    cors:
-    #      allowedOrigins: ${CORS_ALLOWED_ORIGINS}
-    #      allowedMethods: ${CORS_ALLOWED_METHODS}
     jwt:
       secret: NDQ1ZjAzNjQtMzViZi00MDRjLTljZjQtNjNjYWIyZTU5ZDYw
       expired: 3600000

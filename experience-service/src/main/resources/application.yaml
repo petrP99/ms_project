@@ -36,4 +36,4 @@ resilience4j:
     instances:
       industry-service:
         maxAttempts: 3
-        waitDuration: 5000
+        waitDuration: 3000

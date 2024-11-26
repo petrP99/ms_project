@@ -12,7 +12,7 @@ import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Stream;
+import java.util.Optional;
 
 import static java.util.Objects.isNull;
 
@@ -24,14 +24,16 @@ public class ExperienceService {
     private final ExperienceMapper mapper;
     private final IndustryClient industryClient;
 
-    public ExperienceResponseDto getExperience(Long id) {
-//        return repository.getExperienceById(id);
-        return null;
+    public Optional<ExperienceResponseDto> getExperience(Long id) {
+        Experience experience = repository.getExperienceById(id);
+        IndustryDto industryDto = getIndustry(experience.getIndustryId());
+        return Optional.of(experience).stream()
+                .map(it -> mapper.fromEntityToDto(it, industryDto))
+                .findFirst();
     }
 
     public List<ExperienceResponseDto> getAllExperience() {
-//        return repository.getExperiencesBy();
-        return null;
+        return repository.getExperiencesBy();
     }
 
     public ExperienceResponseDto saveExperience(ExperienceRequestDto requestDto) {
