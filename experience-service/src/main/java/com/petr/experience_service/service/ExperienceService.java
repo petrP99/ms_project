@@ -33,7 +33,10 @@ public class ExperienceService {
     }
 
     public List<ExperienceResponseDto> getAllExperience() {
-        return repository.getExperiencesBy();
+        List<Experience> experiencesBy = repository.getExperiencesBy();
+        return experiencesBy.stream()
+                .map(experience -> mapper.fromEntityToDto(experience, getIndustry(experience.getIndustryId())))
+                .toList();
     }
 
     public ExperienceResponseDto saveExperience(ExperienceRequestDto requestDto) {

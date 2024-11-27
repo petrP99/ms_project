@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: experience-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8080/realms/security-realm/protocol/openid-connect/certs
+
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
 
@@ -15,6 +21,7 @@ spring:
         format_sql: true
         hbm2ddl: validate
     database-platform: org.hibernate.dialect.H2Dialect
+
   datasource:
     driver-class-name: org.h2.Driver
     username: admin

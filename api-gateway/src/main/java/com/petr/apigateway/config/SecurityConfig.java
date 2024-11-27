@@ -25,9 +25,6 @@ public class SecurityConfig {
     @Value("${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}")
     private String jwk_set_uri;
 
-    @Value("${spring.security.oauth2.resourceserver.jwt.issuer-uri}")
-    private String issuer_uri;
-
     @Bean
     public SecurityWebFilterChain filterChain(ServerHttpSecurity http) {
         return http

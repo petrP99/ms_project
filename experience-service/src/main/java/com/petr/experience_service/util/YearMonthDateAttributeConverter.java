@@ -1,6 +1,7 @@
 package com.petr.experience_service.util;
 
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import java.sql.Date;
 import java.time.Instant;
@@ -8,6 +9,7 @@ import java.time.YearMonth;
 import java.time.ZoneId;
 import java.util.TimeZone;
 
+@Converter
 public class YearMonthDateAttributeConverter implements AttributeConverter<YearMonth, Date> {
 
     @Override
