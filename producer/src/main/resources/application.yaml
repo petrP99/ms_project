@@ -1,0 +1,17 @@
+server:
+  port: 8098
+
+spring:
+  application:
+    name: producer
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9091
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.StringOrBytesSerializer
+      properties:
+        enable:
+          idempotence: true
+        retention:
+          ms: 604800000

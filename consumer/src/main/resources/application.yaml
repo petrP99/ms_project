@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: consumer
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9091
+    consumer:
+      group-id: kafka_id
+      enable-auto-commit: true
+      auto-offset-reset: earliest
+      auto-commit-interval: 100
+      properties:
+        retention:
+          ms: 604800000
+server:
+  port: 8099

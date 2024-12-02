@@ -10,13 +10,13 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/security-realm
           jwk-set-uri: http://localhost:8080/realms/security-realm/protocol/openid-connect/certs
-#      client:
-#        registration:
-#          keycloak:
-#            client-id: security-client
-#            client-secret: jGd7LgsZI4ibifuyR2DFxPVyRv0vjjlZ
-#            scope: openid
-#            authorization-grant-type: password
+  #      client:
+  #        registration:
+  #          keycloak:
+  #            client-id: security-client
+  #            client-secret: jGd7LgsZI4ibifuyR2DFxPVyRv0vjjlZ
+  #            scope: openid
+  #            authorization-grant-type: password
   cloud:
     gateway:
       routes:

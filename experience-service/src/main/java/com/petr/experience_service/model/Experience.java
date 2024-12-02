@@ -1,13 +1,11 @@
 package com.petr.experience_service.model;
 
-import com.petr.experience_service.dto.IndustryDto;
 import com.petr.experience_service.util.YearMonthDateAttributeConverter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.jdbc.core.SqlReturnType;
 
 import java.time.YearMonth;
 
