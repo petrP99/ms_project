@@ -8,8 +8,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/security-realm
-          jwk-set-uri: http://localhost:8080/realms/security-realm/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8888/realms/security-realm
+          jwk-set-uri: http://localhost:8888/realms/security-realm/protocol/openid-connect/certs
   #      client:
   #        registration:
   #          keycloak:

@@ -8,7 +8,18 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:8080/realms/security-realm/protocol/openid-connect/certs
+          jwk-set-uri: http://localhost:8888/realms/security-realm/protocol/openid-connect/certs
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9091
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.LongDeserializer
+      properties:
+        enable:
+          idempotence: true
+        retention:
+          ms: 604800000
 
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
