@@ -14,7 +14,7 @@ spring:
     producer:
       bootstrap-servers: localhost:9091
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.LongDeserializer
+      value-serializer: org.apache.kafka.common.serialization.LongSerializer
       properties:
         enable:
           idempotence: true

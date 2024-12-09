@@ -2,17 +2,15 @@ package com.petr.experience_service.service;
 
 import com.petr.experience_service.dto.ExperienceRequestDto;
 import com.petr.experience_service.dto.ExperienceResponseDto;
-import com.petr.experience_service.dto.IndustryDto;
 import com.petr.experience_service.mapper.ExperienceMapper;
 import com.petr.experience_service.model.Experience;
 import com.petr.experience_service.repository.ExperienceRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import static java.util.Objects.isNull;
@@ -24,6 +22,7 @@ public class ExperienceService {
     private final ExperienceRepository repository;
     private final ExperienceMapper mapper;
     private final KafkaTemplate<String, Long> kafkaTemplate;
+    private final String TOPIC_NAME = "industry-topic";
 
 //    public Optional<ExperienceResponseDto> getExperience(Long id) {
 //        Experience experience = repository.getExperienceById(id);
@@ -50,6 +49,6 @@ public class ExperienceService {
     }
 
     public void getIndustry(Long id) throws ExecutionException, InterruptedException {
-         kafkaTemplate.send("industry-topic", id);
+        kafkaTemplate.send(TOPIC_NAME, id);
     }
 }
